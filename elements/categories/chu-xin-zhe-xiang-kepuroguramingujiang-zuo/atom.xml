@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[alphakai.github.io]]></title>
-  <link href="http://alphaKAI.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: 初心者向けプログラミング講座 | alphakai.github.io]]></title>
+  <link href="http://alphaKAI.github.io/elements/categories/chu-xin-zhe-xiang-kepuroguramingujiang-zuo/atom.xml" rel="self"/>
   <link href="http://alphaKAI.github.io/"/>
   <updated>2014-09-24T00:50:49+09:00</updated>
   <id>http://alphaKAI.github.io/</id>
@@ -81,12 +81,10 @@ PCは0,1しかわからないけど人間には0,1は辛いのでプログラミ
 
 <p>とりあえず!<br/>
 何もしないプログラムってのをやってみましょうか<br/>
-下の色が変わってる部分がプログラムの部分です！</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='d'><span class='line'><span class="kt">void</span> <span class="n">main</span><span class="p">(){}</span>
-</span></code></pre></td></tr></table></div></figure>
-
+下の色が変わってる部分がプログラムの部分です！<br/>
+<code>d
+void main(){}
+</code></p>
 
 <p>これをさっき用意したエディタでmyFirstProgram.dというファイル名で保存しましょう(わかれば他の名前でも良い ただし拡張子として.dをつけること)<br/>
 そして、コマンドプロンプトなりターミナルエミュレータを起動(いちいち2つとも書くと面倒なのでここではシェルと呼ばせてくださいおねがいします・・・)して<br/>
@@ -113,22 +111,19 @@ myFirstProgram.exe<br/>
 
 <p>とりあえず、ハローワールドと言う プログラミング言語に対する挨拶的なものがあるのですが<br/>
 それをやってみることにしましょう<br/>
-このコードに関する解説はちょっとしたらします</p>
-
+このコードに関する解説はちょっとしたらします<br/>
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='d'><span class='line'><span class="k">import</span> <span class="n">std</span><span class="p">.</span><span class="n">stdio</span><span class="p">;</span>
+</pre></td><td class='code'><pre><code class='d'><span class='line'><span class="k">import</span> <span class="n">std</span><span class="p">.</span><span class="n">stdio</span><span class="p">;&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="kt">void</span> <span class="n">main</span><span class="p">(){</span>
-</span><span class='line'>  <span class="n">writeln</span><span class="p">(</span><span class="s">&quot;Hello world!&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="kt">void</span> <span class="n">main</span><span class="p">(){</span>
+</span><span class='line'>  <span class="n">writeln</span><span class="p">(&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Hello</span> <span class="n">world</span><span class="p">!&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
-<p>これをさっき用意したエディタでhelloworld.dというファイル名で保存し先ほどと同様にコンパイルして実行してみましょう！<br/>
+これをさっき用意したエディタでhelloworld.dというファイル名で保存し先ほどと同様にコンパイルして実行してみましょう！<br/>
 Windowsな方は<br/>
 helloworld.exe<br/>
 *nixな方は<br/>
@@ -164,14 +159,11 @@ Hello world!と出力されると思います！<br/>
 <p>まず、最初の何もしないプログラムについて</p>
 
 <p>一個一個の意味を書いていくと<br/>
-とりあえず、</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='d'><span class='line'><span class="kt">void</span> <span class="n">main</span><span class="p">(){}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>とあるのですがこれは何をしているかというと<br/>
+とりあえず、<br/>
+<code>d
+void main(){}
+</code>
+とあるのですがこれは何をしているかというと<br/>
 void型のmainという関数を宣言というか定義しているんですよね<br/>
 で、まあ、voidってなにmainってなにつか関数って何ってなるので一個一個説明します<br/>
 まず、void型のmainという関数について<br/>
