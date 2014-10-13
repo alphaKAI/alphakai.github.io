@@ -4,7 +4,7 @@
   <title><![CDATA[alphakai.github.io]]></title>
   <link href="http://alphaKAI.github.io/atom.xml" rel="self"/>
   <link href="http://alphaKAI.github.io/"/>
-  <updated>2014-09-24T00:55:04+09:00</updated>
+  <updated>2014-10-13T15:04:34+09:00</updated>
   <id>http://alphaKAI.github.io/</id>
   <author>
     <name><![CDATA[alphaKAI]]></name>
@@ -14,7 +14,146 @@
 
   
   <entry>
-    <title type="html"><![CDATA[02-FirstProgramming-First]]></title>
+    <title type="html"><![CDATA[初心者向けプログラミング講座 – 02 : 初めてのプログラミング 後編]]></title>
+    <link href="http://alphaKAI.github.io/elements/2014/10/12/02-firstprogramming-second/"/>
+    <updated>2014-10-12T17:53:55+09:00</updated>
+    <id>http://alphaKAI.github.io/elements/2014/10/12/02-firstprogramming-second</id>
+    <content type="html"><![CDATA[<p>はい、あるふぁかいさんによる初心者向けプログラミング講座02の後編です<br/>
+前編はこちらです<a href="http://alphakai.github.io/elements/2014/09/24/02-firstprogramming-first/">http://alphakai.github.io/elements/2014/09/24/02-firstprogramming-first/</a><br/>
+01はこちらです<a href="http://alphakai.github.io/elements/2014/09/23/01-intro-aboutprogramming/">http://alphakai.github.io/elements/2014/09/23/01-intro-aboutprogramming/</a></p>
+
+<p>今回は前編のハローワールドの解説とプログラミング言語の選び方的なものも書きます！</p>
+
+<p>では、続きからどうぞ！</p>
+
+<!--more-->
+
+
+<p>えーっと、では早速行きましょう！</p>
+
+<h3>ハローワールドの解説</h3>
+
+<p>とりあえず、もう一回貼っておきますか</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='d'><span class='line'><span class="k">import</span> <span class="n">std</span><span class="p">.</span><span class="n">stdio</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="n">main</span><span class="p">(){</span>
+</span><span class='line'>  <span class="n">writeln</span><span class="p">(</span><span class="s">&quot;Hello world!&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>こんな短いコード(実質4行)にも重要なことがたくさんあります！</p>
+
+<p>えーっと、まず1行目のimportの話し</p>
+
+<p>えーっとこれは何をしてるかって言うと<br/>
+stdっていうのがまずPhobosという標準ライブラリにことを指していて(etcとかもアリますが)<br/>
+そこのstdio.dっていうのを読み込んでいるんですよ</p>
+
+<p>あーっと<br/>
+ここで標準ライブラリという言葉が出てきたので説明します<br/>
+まず、ライブラリとは<br/>
+簡単に言うと便利関数の便利セット的な認識で大丈夫です<br/>
+で、標準ライブラリってのはそのソフトウェアに最初から付属するライブラリのことです</p>
+
+<p>でさっきのstd.stdioに関しては<br/>
+stdに含まれるstdioに文字列を読み込んでいる感じです<br/>
+で、そのstdioにはコンソールに出力するための関数とかIOに関する関数が含まれているんですよ</p>
+
+<p>はい、用語解説します<br/>
+std     -> Standard<br/>
+io        -> input/output<br/>
+stdio -> Standard Input Output<br/>
+とりあえず、略語はこんなかんじです<br/>
+で、IO(略します)とはそのとおり 入出力のことを表します<br/>
+で、ここでの入出力は標準入出力のことを言います<br/>
+このへんの説明は一応しますが(主に出力について)詳しくは自分で調べてください</p>
+
+<p>えーっと、標準出力ってのはシェル(ここでのシェルの意味については前編をご覧ください)<br/>
+に文字を出力することを言います</p>
+
+<p>で、丁度いまこのプログラムで<br/>
+writelnって言うのを使ってるのですが(4行目)それはstd.stdioによって提供されています</p>
+
+<p>試しに<code>import std.stdio;</code>の行を消してみるとエラーが吐かれると思います<br/>
+はい</p>
+
+<p>とまあこんな感じでimportの説明はOkです<br/>
+std.stdioについては文字が出力したくなったらstd.stdioをimportしてwritelnするって覚えておいてください</p>
+
+<p>あ！重要なことを忘れて今したが<br/>
+D言語では式や文、宣言の終わりにセミコロン(;)をつけ無いといけません<br/>
+式は y = 1 + 2;みたいなもの<br/>
+文 writeln();みたいな関数の呼び出し<br/>
+宣言 import ***;みたいな感じのもの</p>
+
+<p>あと、変数/定数同士の計算(03でやる予定)とかも式です</p>
+
+<p>次に、関数の呼び出しの話をしましょう</p>
+
+<p>えーっとさっきから話に出てきているf(x)と全く同じです<br/>
+何が同じって模式的に書くと<br/>
+戻り値を格納する変数 = 関数名(引数);<br/>
+なんですよ！<br/>
+つまり<br/>
+y = f(x)<br/>
+f(x) = 2x<sup>2</sup> + 3x -4 という式が関数で<br/>
+yがそれを格納する変数ってわけですね</p>
+
+<p>でwritelnの話をするとwritelnは任意の数の引数をとり、その与えられた引数を末尾で改行して標準出力する関数です<br/>
+だから&#8221;Hello world&#8221;という文字列リテラルが出力されたんですね！<br/>
+リテラルの話は前編でしましたのでそちらを見てください</p>
+
+<p>うーんとりあえず、これで多分ハローワールドの説明は終わりました</p>
+
+<p>って言おうとしたけど重要なことをいい忘れていました<br/>
+D言語の場合、main関数をvoid型で宣言した場合、自動的にreturn 0;で返り値0が返るような仕様になっています<br/>
+ｱ、返り値の話ししたけど返り値の返し方を忘れていましたね<br/>
+多分また後で関数を自作しようってところで触れますが一応書いておくと<br/>
+return 変数 or 定数;<br/>
+という感じで値をreturnします</p>
+
+<p>こんな感じでハローワールドの説明を終わるので<br/>
+何かわからないことがアリましたらコメント/Twitterでお願いします</p>
+
+<h3>プログラミング言語の選び方(リクエストされたので)</h3>
+
+<p>Twitterでリクエストされたので書きます</p>
+
+<p>ぶっちゃけ、好きな言語を使えばいいのですが<br/>
+まあ、それだとざっくりし過ぎなのでチョットしっかりすると<br/>
+やりたい分野によって適している言語ってのは異なります<br/>
+んー、分野っていうとあれですけど<br/>
+例えば、PHPっていう言語があるんですけど、それは主に動的にHTML(これは調べてください)っていうのを生成するための言語でWeb向けなんですよね<br/>
+だけど、それでゲーム開発をするのはすごく困難なんですよ<br/>
+ほかにもJavaScriptという言語がアリますが、これもまたWeb系だしそれにブラウザの上で実行される言語なんですよね<br/>
+ですので、高速な処理が必要とされる処理とかアプリとかを開発する際には少し難しいんですよ<br/>
+僕もすべての言語を把握しているわけじゃないので(というかphpもJavaScriptも紹介したけど僕かけない)自分のやりたいことを調べてそれに適した言語とか<br/>
+自分が好きになれるような言語を探してそれを使うのが良いと思います</p>
+
+<p>僕的にはD言語とRubyをおすすめします<br/>
+僕がDとRubyが好きな理由についてはまた今度書こうと思います</p>
+
+<p>では、次回予告をします<br/>
+次回は変数を用いたプログラミングをしていこうと思います<br/>
+だんだん日本語が怪しくなってきたりわかりにくくなってきたかもしれないので<br/>
+遠慮せずどんどんコメントかTwitterで指摘してください！<br/>
+よろしくお願いします！！</p>
+
+<p>では、以上です</p>
+
+<p>α改</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[初心者向けプログラミング講座 – 02 : 初めてのプログラミング 前編]]></title>
     <link href="http://alphaKAI.github.io/elements/2014/09/24/02-firstprogramming-first/"/>
     <updated>2014-09-24T00:20:18+09:00</updated>
     <id>http://alphaKAI.github.io/elements/2014/09/24/02-firstprogramming-first</id>
@@ -281,7 +420,7 @@ main関数 -> 他の関数読んだりして処理する<br/>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[01-Intro-AboutProgramming]]></title>
+    <title type="html"><![CDATA[初心者向けプログラミング講座 – 01 : Introduction そもそもプログラミングとは]]></title>
     <link href="http://alphaKAI.github.io/elements/2014/09/23/01-intro-aboutprogramming/"/>
     <updated>2014-09-23T23:51:05+09:00</updated>
     <id>http://alphaKAI.github.io/elements/2014/09/23/01-intro-aboutprogramming</id>
@@ -292,7 +431,10 @@ main関数 -> 他の関数読んだりして処理する<br/>
 まあ、プログラミングに興味を持ってる方が対象なので書く必要があんまりない(?)かもしれないですけど<br/>
 とりあえずここから</p>
 
-<p>次回へのリンクを貼っておきます</p>
+<p>次回へのリンクを貼っておきます
+次回への目次
+02(前編)はこちらです(<a href="http://blog.alpha-kai-net.info/?p=1082">http://blog.alpha-kai-net.info/?p=1082</a>)
+02(後編)はこちらです(<a href="https://blog.alpha-kai-net.info/?p=1086">https://blog.alpha-kai-net.info/?p=1086</a>)</p>
 
 <p>では、続きからどうぞ</p>
 
