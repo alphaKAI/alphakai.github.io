@@ -3,6 +3,14 @@
   
   
   <url>
+    <loc>http://alphaKAI.github.io/elements/2014/10/13/03-firstuseval/</loc>
+    
+    <lastmod>2014-10-13T15:06:34+09:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://alphaKAI.github.io/elements/2014/10/12/02-firstprogramming-second/</loc>
     
     <lastmod>2014-10-12T17:53:55+09:00</lastmod>
@@ -29,21 +37,21 @@
   
   <url>
     <loc>http://alphaKAI.github.io/404.html</loc>
-    <lastmod>2014-10-13T15:04:34+09:00</lastmod>
+    <lastmod>2014-10-13T15:24:28+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://alphaKAI.github.io/</loc>
-    <lastmod>2014-10-13T15:04:34+09:00</lastmod>
+    <lastmod>2014-10-13T15:24:28+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://alphaKAI.github.io/blog/archives/</loc>
-    <lastmod>2014-10-13T15:04:34+09:00</lastmod>
+    <lastmod>2014-10-13T15:24:28+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

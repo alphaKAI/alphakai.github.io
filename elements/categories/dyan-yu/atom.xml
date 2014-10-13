@@ -4,7 +4,7 @@
   <title><![CDATA[Category: D言語 | alphakai.github.io]]></title>
   <link href="http://alphaKAI.github.io/elements/categories/dyan-yu/atom.xml" rel="self"/>
   <link href="http://alphaKAI.github.io/"/>
-  <updated>2014-10-13T15:04:34+09:00</updated>
+  <updated>2014-10-13T15:24:28+09:00</updated>
   <id>http://alphaKAI.github.io/</id>
   <author>
     <name><![CDATA[alphaKAI]]></name>
@@ -14,13 +14,289 @@
 
   
   <entry>
+    <title type="html"><![CDATA[初心者向けプログラミング講座 – 03 : 変数を用いたプログラミング]]></title>
+    <link href="http://alphaKAI.github.io/elements/2014/10/13/03-firstuseval/"/>
+    <updated>2014-10-13T15:06:34+09:00</updated>
+    <id>http://alphaKAI.github.io/elements/2014/10/13/03-firstuseval</id>
+    <content type="html"><![CDATA[<p>どーも、あるふぁかいさんによる初心者向けプログラミング講座03です！<br/>
+今回は変数を使ったプログラミングをしていこうと思います</p>
+
+<p>過去記事<br/>
+01はこちらです<br/>
+<a href="http://alphakai.github.io/elements/2014/09/23/01-intro-aboutprogramming/">初心者向けプログラミング講座 – 01 : Introduction そもそもプログラミングとは</a><br/>
+02(前編)はこちらです<br/>
+<a href="http://alphakai.github.io/elements/2014/09/24/02-firstprogramming-first/">初心者向けプログラミング講座 – 02 : 初めてのプログラミング 前編</a><br/>
+02(後編)はこちらです<br/>
+<a href="http://alphakai.github.io/elements/2014/10/12/02-firstprogramming-second/">初心者向けプログラミング講座 – 02 : 初めてのプログラミング 後編</a></p>
+
+<p>では、続きからどうぞ</p>
+
+<!--more-->
+
+
+<p>はい、これ書いてる時に時計をみたら丁度午前2時だったんですよね<br/>
+そしたら、星が見たくなってきました(頭の中で天体観測が再生されてる系の)<br/>
+そんなはなしは置いといて今回もはりきっていきましょー！</p>
+
+<h3>変数を用いたプログラミング</h3>
+
+<p>じゃあまず早速D言語によるソースコードを書きます<br/>
+プログラミングで一番大事なことは実際に手を動かすことだと思うので！</p>
+
+<pre><code class="d">import std.stdio;
+
+void main(){
+  int x;
+  x = 2;// x に 2を代入
+  writeln(x);
+}
+</code></pre>
+
+<p>はい。前回までのことを踏まえて考えるとこれが何をしているかわかるかなあと思います</p>
+
+<p>とりあえずこれを実行してみると多分<br/>
+2<br/>
+とコンソールに出力されると思います</p>
+
+<p>では、解説をします</p>
+
+<p>まずまあ、1行目でstd.stdioをimportしてますよね<br/>
+まあ、これは変数の中身を表示するためにwritelnを使いたいので使っています</p>
+
+<p>あー、writelnについて補足しておきますね<br/>
+writelnはwriteという関数があるんですけど、writeはただ文字をwriteするだけの関数で、lnは改行を表しています<br/>
+前回writelnは改行を末尾ですると言ったのはそういうことです write + ln = writeln的な感じです<br/>
+で、その改行についてなのですが<br/>
+前も言ったけど結局プログラムは全部0,1になるんですよ<br/>
+で、その時に文字の改行も0,1で表さないといけないんですよね
+だから、改行っていうのを明示的に示す必要があります<br/>
+じゃあどうやんのって話なんですけど<br/>
+簡単です エスケープシーケンスというものを使います
+エスケープシーケンスについてざっくり言うと<br/>
+普通は表せない文字とか機能を規定された特別な文字の並びにより表したものです<br/>
+ん〜、わかりにくいかもしれないのですがまあ基本的に バックスラッシュ + 文字って思っておくといいかもしれません<br/>
+とりあえずチョット書くと</p>
+
+<ul>
+<li>\n 改行を表すエスケープシーケンス</li>
+<li>\t TAB文字を表すエスケープシーケンス<br/>
+みたいな感じです</li>
+</ul>
+
+
+<p>つまり</p>
+
+<pre><code class="d">writeln("Hello");
+</code></pre>
+
+<p>と</p>
+
+<pre><code class="d">write("Hello\n");
+</code></pre>
+
+<p>は同義です はい</p>
+
+<p>話がそれたので解説に戻りますね</p>
+
+<p>で、まあ変数の表示に関してはこれでいいと思うのですが、肝心の変数についての説明ができてないので今からします</p>
+
+<p>えーっと まず4行目でint型のxという変数を宣言しています<br/>
+基本的に、D言語のような静的型付けの言語では変数を用いる場合は宣言が必要です<br/>
+というのも、前述したとおりプログラムを0,1に変化する過程において宣言がないと様々な問題が発生するんですよ だからコンパイル時に弾いてる そんなかんじです(適当な説明になってしまいました・・・)<br/>
+で5行目でxに2を代入しています</p>
+
+<p>はい、ここで代入について説明しますね</p>
+
+<p>えーっと、数学では=は両辺が等しいことを示しますが プログラミングにおいては代入を意味します<br/>
+左辺に右辺を代入する感じです<br/>
+模式的に書くと<br/>
+代入される変数 = 代入する値;<br/>
+という感じです<br/>
+で、ここで値と書きましたが<br/>
+べつに値の部分は定数じゃなくてもいいんです<br/>
+変数でも構いません<br/>
+変数を書いた場合、変数の値が参照されてそれが代入されます<br/>
+つまり、x,yという2つのint型の変数があったとして</p>
+
+<pre><code class="d  ">x = 2;
+y = x;
+</code></pre>
+
+<p>とした場合、yにxのもつ2が代入されます</p>
+
+<p>ちなみに、数学における等価を表す=とプログラミングに於ける等価を表す演算子は==です<br/>
+==は等価演算子といいます<br/>
+比較演算子の一つです<br/>
+それに関しては、条件分岐を説明する回で解説するので頭の片隅においておいてください<br/>
+あ、演算子という新出単語がでましたね</p>
+
+<p>演算子とは演算を表す各種の記号のことです<br/>
+つまり、加算を表す演算子は<code>+</code>ですし、減算を表す演算子は<code>-</code><br/>
+同様に乗算は<code>*</code>で除算は<code>/</code>です<br/>
+除算がちょっと変わっていますね まあでもそういうもんだと思ってください<br/>
+それから剰余を表すのが%です<br/>
+2 = 8 % 6<br/>
+という感じになります</p>
+
+<p>まだまだ演算子はありますが、とりあえず今は必要ないので<br/>
+また次の回で必要になった時に逐次説明しようと思います</p>
+
+<p>で、代入演算子(=)をつかってxに2を代入しています<br/>
+ちなみにD言語では変数の宣言時に自動的に初期値(型によって異なる)で初期化されます<br/>
+intの場合は0がstringなら&#8221;&ldquo;(空)が代入されます<br/>
+でも、その初期値を自分で宣言時に設定できます<br/>
+どうするかというと実に簡単で</p>
+
+<pre><code class="d">int x = 2;
+</code></pre>
+
+<p>これでxには2が代入されます<br/>
+ちなみに、intの挙動が変わるとか言うことはないので次の行で<code>int y;</code>と宣言したところでyは0で初期化されます</p>
+
+<p>ソースコードもう一回見ると、ここで一つ疑問に思うと思うのですが<br/>
+// x に 2を代入<br/>
+っていうのが書いてありますよね<br/>
+この//について説明しようと思います<br/>
+長くなったので、セクションを一回切りましょう</p>
+
+<h3>コメントアウトについて</h3>
+
+<p>はい。<br/>
+コメントアウトって何よってなるので説明しますと<br/>
+コメントとは、ソースコードにおけるメモ書きです<br/>
+でも、そのコメントをコンパイラが解釈しようとすると事故るので<br/>
+コメントをコンパイラが解釈しないように、つまり、無視するようにすることをコメントアウトといいます<br/>
+で、そのコメントアウトするために//というスラッシュ2つの記号を使います<br/>
+まあ、//以外にも様々なコメントアウトの記号があるので説明しますね<br/>
+とりあえず列挙していきますかね</p>
+
+<pre><code class="d  ">// 一行コメント
+/*
+   複数行コメント
+ */
+/+ 
+   ネスト可能複数行コメント
+ +/
+</code></pre>
+
+<p>一応3つあげときますね<br/>
+それぞれ説明すると、<br/>
+<code>//</code>は一行コメントでその記号からその行の末尾までがコメントアウトとなります<br/>
+<code>/**/</code>は複数行コメントなので<code>/*</code>から<code>*/</code>の間に書いた内容がコメントアウトされます<br/>
+<code>/++/</code>はネスト、つまり入れ子可能な複数行コメントです<br/>
+どういうことかというと</p>
+
+<pre><code class="d">// /**/だとこれはダメ
+/*
+  /* hogehoge */
+*/
+// /++/だとOk
+/+
+  /* hogehoge */
++/
+</code></pre>
+
+<p>というわけです<br/>
+つまり、<code>/**/</code>でコメントアウトされている箇所がある場合は<code>/++/</code>でくくるといいですね<br/>
+ちなみに、<code>/++/</code>はC言語とか他の言語では使えないと思います<br/>
+僕が知らないだけかもしれないですけど<code>/++/</code>がネスト可能なコメントがある言語はD言語しかしらないです</p>
+
+<p>でまー！とりあえずこれでサンプルコードに関する説明は終わりました</p>
+
+<p>せっかくなので<code>int</code>だけじゃなくて他の型も使ってみましょうか</p>
+
+<pre><code class="d">import std.stdio;
+
+void main(){
+  int x      = 2;
+  string str = "Hello world!";
+
+  writeln("x   : ", x);
+  writeln("str : ", str);
+}
+</code></pre>
+
+<p>これで<br/>
+  x   : 2<br/>
+  str : Hello world!<br/>
+と出力されると思います<br/>
+あ、ちなみに writelnは賢いので、異なる型のリテラルを引数として加えてもそれを結合して出力します</p>
+
+<p>あと、ワンポイントアドバイスとして<br/>
+=による代入の場所を前後の行で揃えると見やすいと思います(個人的な感覚ですけど)<br/>
+丁度数学でも同じ感ですよね</p>
+
+<p>あああ！！！！！！！！！<br/>
+重要なことを忘れていましたが<br/>
+プログラムの可読性を保つためにもインデントをしましょう<br/>
+インデントって何ってなるので説明すると<br/>
+プログラムを見やすくするために文頭を空白やTAB文字でずらすことを言います<br/>
+僕はいつも半角スペース2つを1単位としてインデントしています<br/>
+インデントはブロック({}で囲まれる内容をブロックという)ごとにインデントしています<br/>
+ちょっと試しに書いてみると(説明していない構文とかが含まれるので意味は考えなくて結構です、見やすさ的な観点を意識してください)<br/>
+あと、適度なとこで空行を入れるといいかなあって思います！</p>
+
+<p>せっかくなので、=の場所揃えとインデントを使ってみて綺麗にしたソースコードとそうでないものを比較しましょうか</p>
+
+<p>可読性を意識していないコードの例</p>
+
+<pre><code class="d">import std.stdio;
+
+void main(){
+int x;
+string str;
+x = 2;
+str = "abc";
+if(x == 2){
+writeln(str);
+}
+}
+</code></pre>
+
+<p>れを先ほどの工夫を施すと次のようになります<br/>
+可読性を意識したコードの例</p>
+
+<pre><code class="d">import std.stdio;
+void main(){
+  int x;
+  string str;
+
+  x   = 2;
+  str = "abc";
+
+  if(x == 2){
+    writeln(str);
+  }
+}
+</code></pre>
+
+<p>どうです？<br/>
+後者の方が見やすいと思います</p>
+
+<p>今回も長くなりましたね！<br/>
+お疲れ様です！</p>
+
+<p>次回予告です<br/>
+次回はいよいよ条件分岐とループ構文とかに行こうかなあと、あと便利なデータ構造の一つの配列についても説明しようと思います！</p>
+
+<p>では、以上です</p>
+
+<p>alphaKAI</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[初心者向けプログラミング講座 – 02 : 初めてのプログラミング 後編]]></title>
     <link href="http://alphaKAI.github.io/elements/2014/10/12/02-firstprogramming-second/"/>
     <updated>2014-10-12T17:53:55+09:00</updated>
     <id>http://alphaKAI.github.io/elements/2014/10/12/02-firstprogramming-second</id>
-    <content type="html"><![CDATA[<p>はい、あるふぁかいさんによる初心者向けプログラミング講座02の後編です<br/>
-前編はこちらです<a href="http://alphakai.github.io/elements/2014/09/24/02-firstprogramming-first/">http://alphakai.github.io/elements/2014/09/24/02-firstprogramming-first/</a><br/>
-01はこちらです<a href="http://alphakai.github.io/elements/2014/09/23/01-intro-aboutprogramming/">http://alphakai.github.io/elements/2014/09/23/01-intro-aboutprogramming/</a></p>
+    <content type="html"><![CDATA[<p>はい、あるふぁかいさんによる初心者向けプログラミング講座02の後編です</p>
+
+<p>過去記事
+01はこちらです<br/>
+<a href="http://alphakai.github.io/elements/2014/09/23/01-intro-aboutprogramming/">初心者向けプログラミング講座 – 01 : Introduction そもそもプログラミングとは</a><br/>
+02(前編)はこちらです<br/>
+<a href="http://alphakai.github.io/elements/2014/09/24/02-firstprogramming-first/">初心者向けプログラミング講座 – 02 : 初めてのプログラミング 前編</a></p>
 
 <p>今回は前編のハローワールドの解説とプログラミング言語の選び方的なものも書きます！</p>
 
@@ -142,7 +418,7 @@ return 変数 or 定数;<br/>
 
 <p>では、以上です</p>
 
-<p>α改</p>
+<p>alphaKAI</p>
 ]]></content>
   </entry>
   
@@ -153,7 +429,8 @@ return 変数 or 定数;<br/>
     <id>http://alphaKAI.github.io/elements/2014/09/24/02-firstprogramming-first</id>
     <content type="html"><![CDATA[<p>どうも、あるふぁかいさんによるプログラミング講座02です<br/>
 前回の記事<br/>
-<a href="http://alphakai.github.io/elements/2014/09/23/01-intro-aboutprogramming/">http://alphakai.github.io/elements/2014/09/23/01-intro-aboutprogramming/</a>の続きです</p>
+<a href="http://alphakai.github.io/elements/2014/09/23/01-intro-aboutprogrammin/">初心者向けプログラミング講座 – 01 : Introduction そもそもプログラミングとは</a><br/>
+の続きです</p>
 
 <p>今回は、D言語のコンパイラを導入してプログラミングに触れてみようって言う感じの内容です<br/>
 あ、あとそれから<br/>
@@ -417,10 +694,12 @@ main関数 -> 他の関数読んだりして処理する<br/>
 まあ、プログラミングに興味を持ってる方が対象なので書く必要があんまりない(?)かもしれないですけど<br/>
 とりあえずここから</p>
 
-<p>次回へのリンクを貼っておきます
-次回への目次
-02(前編)はこちらです(<a href="http://blog.alpha-kai-net.info/?p=1082">http://blog.alpha-kai-net.info/?p=1082</a>)
-02(後編)はこちらです(<a href="https://blog.alpha-kai-net.info/?p=1086">https://blog.alpha-kai-net.info/?p=1086</a>)</p>
+<p>次回へのリンクを貼っておきます<br/>
+次回への目次<br/>
+02(前編)はこちらです<br/>
+<a href="http://alphakai.github.io/elements/2014/09/24/02-firstprogramming-first/">初心者向けプログラミング講座 – 02 : 初めてのプログラミング 前編</a><br/>
+02(後編)はこちらです<br/>
+<a href="http://alphakai.github.io/elements/2014/10/12/02-firstprogramming-second/">初心者向けプログラミング講座 – 02 : 初めてのプログラミング 後編</a></p>
 
 <p>では、続きからどうぞ</p>
 
