@@ -4,7 +4,7 @@
   <title><![CDATA[alphakai.github.io]]></title>
   <link href="http://alphaKAI.github.io/atom.xml" rel="self"/>
   <link href="http://alphaKAI.github.io/"/>
-  <updated>2014-10-13T15:52:16+09:00</updated>
+  <updated>2014-10-13T16:31:39+09:00</updated>
   <id>http://alphaKAI.github.io/</id>
   <author>
     <name><![CDATA[alphaKAI]]></name>
@@ -12,6 +12,409 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[初心者向けプログラミング講座 - 04 : 制御構文と配列 後編]]></title>
+    <link href="http://alphaKAI.github.io/elements/2014/10/13/04-firstuseifandloop-second/"/>
+    <updated>2014-10-13T15:54:17+09:00</updated>
+    <id>http://alphaKAI.github.io/elements/2014/10/13/04-firstuseifandloop-second</id>
+    <content type="html"><![CDATA[<p>今回は初心者向けプログラミング講座04の後編です!<br/>
+長くなったので、前編後編とわけました!<br/>
+ただ、前編を書いているときに結構説明に不備があるのを痛感して辛くなってきてます<br/>
+がんばります!</p>
+
+<p>過去記事<br/>
+01  <a href="http://alphakai.github.io/elements/2014/09/23/01-intro-aboutprogramming/">初心者向けプログラミング講座 – 01 : Introduction そもそもプログラミングとは</a><br/>
+02(前編)  <a href="http://alphakai.github.io/elements/2014/09/24/02-firstprogramming-first/">初心者向けプログラミング講座 – 02 : 初めてのプログラミング 前編</a><br/>
+02(後編)  <a href="http://alphakai.github.io/elements/2014/10/12/02-firstprogramming-second/">初心者向けプログラミング講座 – 02 : 初めてのプログラミング 後編</a><br/>
+03  <a href="http://alphakai.github.io/elements/2014/10/13/03-firstuseval/">初心者向けプログラミング講座 – 03 : 変数を用いたプログラミング</a><br/>
+04(前編)  <a href="http://alphakai.github.io/elements/2014/10/13/04-firstuseifandloop-first/">初心者向けプログラミング講座 - 04 : 制御構文と配列 前編</a></p>
+
+<p>では、続きからどうぞ!</p>
+
+<!--more-->
+
+
+<p>では、再開です</p>
+
+<p>あとは・・・ whileとdo whileぐらいですかね・・・<br/>
+一気に説明しちゃいましょうか</p>
+
+<p>whileはとりあえずループさせたいときに使うといいかなあと<br/>
+つーか、foreachでもforでもwhileでもなんでもループはかけるのでお好みでいい感じです<br/>
+書いてるうちにどれが適切かは見えてくるんじゃないかなあとか思ったり</p>
+
+<p>とりあえず、サンプルコード</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='d'><span class='line'><span class="k">import</span> <span class="n">std</span><span class="p">.</span><span class="n">stdio</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="n">main</span><span class="p">(){</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">){</span>
+</span><span class='line'>    <span class="n">writeln</span><span class="p">(</span><span class="n">i</span><span class="p">++);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>出力はさっきと同じです</p>
+
+<p>それから見た感じでもうわかると思います<br/>
+あ、ちなみにwhile文で無限ループを書くのはとても簡単です</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='d'><span class='line'><span class="k">while</span><span class="p">(</span><span class="mi">0</span><span class="err">以外の値</span><span class="p">){</span>
+</span><span class='line'>  <span class="c1">//処理</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>とかくとそのブロックが永遠に実行されます<br/>
+あ、forで書くときは</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='d'><span class='line'><span class="k">for</span><span class="p">(;;){</span>
+</span><span class='line'>  <span class="c1">//処理</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>と書くと無限ループになります</p>
+
+<p>あ、ちなみに無限ループなんて本当に無限にループさせることはなく<br/>
+途中である一定の条件を満たしたらそのループを抜けるように書くのが普通です(無限にやる意味なんて無いので)<br/>
+で、その抜け出し方はbreak文を使います<br/>
+簡単です<br/>
+例えば次のwhileの無限ループがあったとします</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='d'><span class='line'><span class="k">import</span> <span class="n">std</span><span class="p">.</span><span class="n">stdio</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="n">main</span><span class="p">(){</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+</span><span class='line'>    <span class="p">++</span><span class="n">i</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="p">&gt;</span> <span class="mi">1000</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これで1000回目のループでwhileから抜け出します</p>
+
+<p>こんな感じでいいでしょうか</p>
+
+<p>最後にdo while文ですね</p>
+
+<p>まずサンプル</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='d'><span class='line'><span class="k">import</span> <span class="n">std</span><span class="p">.</span><span class="n">stdio</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="n">main</span><span class="p">(){</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">do</span><span class="p">{</span>
+</span><span class='line'>    <span class="n">writeln</span><span class="p">(</span><span class="n">i</span><span class="p">++)</span>
+</span><span class='line'>  <span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>結果は言わずもがな<br/>
+で、whileと違う点は<br/>
+do while文は必ず一度ブロックを実行してから条件式を評価するというところです<br/>
+なので、必ず一回は実行する必要があるループを書くときに丁度いいと思います<br/>
+whileとかforだと門前払いがありますが、do whileだとないです</p>
+
+<p>参考になるかはわかりませんが<br/>
+僕が後輩に課したATMシステムもどきの課題の模範実装的なものをまえにGistで公開したので<br/>
+リンクを貼っておきます<br/>
+なんとなくつかめるかもしれないです<br/>
+<a href="https://gist.github.com/alphaKAI/d44931c5ee9b4b3576db">https://gist.github.com/alphaKAI/d44931c5ee9b4b3576db</a></p>
+
+<p>めっちゃ長くなって辛いかもしれないですが<br/>
+一気に駆け抜けましょう!(ランナーズハイ感)</p>
+
+<h3>配列ってなーに</h3>
+
+<p>はい、配列っていうのは感ターンに言うと<br/>
+あるTという型があったとしてT型の配列というと<br/>
+T型の値がN個格納された変数です<br/>
+宣言するときはT[] 変数名;と宣言します<br/>
+わかりにくいかもしれないので実際にサンプルコードを書いてみます</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='d'><span class='line'><span class="k">import</span> <span class="n">std</span><span class="p">.</span><span class="n">stdio</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="n">main</span><span class="p">(){</span>
+</span><span class='line'>  <span class="kt">int</span><span class="p">[]</span> <span class="n">array</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">writeln</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これでarrayというint型の要素が5つの動的配列を宣言したことになります<br/>
+動的配列とはどういうことかというと<br/>
+処理中に自由に配列の長さを変えることが出来る配列ということです<br/>
+つまり</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='d'><span class='line'><span class="k">import</span> <span class="n">std</span><span class="p">.</span><span class="n">stdio</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="n">main</span><span class="p">(){</span>
+</span><span class='line'>  <span class="kt">int</span><span class="p">[]</span> <span class="n">array</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">writeln</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">array</span><span class="p">.</span><span class="n">length</span><span class="p">++;</span>
+</span><span class='line'>  <span class="n">array</span><span class="p">[</span><span class="n">array</span><span class="p">.</span><span class="n">length</span> <span class="p">-</span> <span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">writeln</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>こう書いた場合<br/>
+最初は<br/>
+<code>[0, 1, 2, 3, 4]</code><br/>
+ですが、<br/>
+次は<br/>
+<code>[0, 1, 2, 3, 4, 5]</code><br/>
+になっていますよね<br/>
+確かめてみてください</p>
+
+<p>解説にはいりますね<br/>
+配列名.lengthと書くことで配列の長さにアクセスすることができます<br/>
+で、配列の長さをインクリメントすることで配列の長さを1つ増やしています<br/>
+次にarray[array.length - 1] = 5とかいて新しく用意したスペースに5を代入しています<br/>
+ん？[]ってなに? なんで1引くの?ってなると思うので説明します</p>
+
+<p>まず[]は添字を意味します<br/>
+添字とは配列のどこを指すかということで<br/>
+[1, 2, 3, 4]という整数型の配列Kがあった場合<br/>
+K[2]は3を示します<br/>
+あれ>? 2じゃないの?? ってなると思うんですよー<br/>
+でも、違うんです 3なんです<br/>
+理由は添字が0から始まるからです<br/>
+つまり<br/>
+配列 : [1, 2, 3, 4]<br/>
+添字 :  0  1  2  3<br/>
+と対応していますなので目で見た時の要素の場所 - 1が実際の場所になります<br/>
+で、要素数は普通に1から始まるので帳尻を合わせるために1をlengthから引いているわけです</p>
+
+<p>まとめると配列というのは<br/>
+ある型の値の列ということですね</p>
+
+<p>ちなみに、string型つまり文字列型は実はstringはimmutable(char)[]のaliasなんですよ<br/>
+あー、immutableというのは属性(修飾子)です<br/>
+属性には何種類かあるのですがここでは3つほど、ご紹介しましょう<br/>
+とりあえず列挙しますと<br/>
+immutable<br/>
+const<br/>
+static<br/>
+とかまあこんな感じです</p>
+
+<p>それぞれの説明をするとまず<br/>
+immutableとconstは基本的に同じように扱えます<br/>
+この修飾子をつけると変数が定数となります<br/>
+つまり</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='d'><span class='line'><span class="k">const</span> <span class="n">x</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="n">x</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span><span class="c1">//エラー</span>
+</span><span class='line'><span class="k">immutable</span> <span class="n">y</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="n">y</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span><span class="c1">//エラー</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>となります<br/>
+まあ、いまは違いは気にしないでいいと思います</p>
+
+<p>staticについては<br/>
+staticは関数またはデータに適用されて、この宣言が特定のインスタンスに関するものではなくて<br/>
+型に関するものであるという意味になります。<br/>
+つまり、thisを参照しないとも言えます。<br/>
+サンプルコードを書くと、</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='d'><span class='line'><span class="k">class</span> <span class="n">Foo</span><span class="p">{</span>
+</span><span class='line'>  <span class="k">static</span> <span class="kt">int</span> <span class="n">bar</span><span class="p">(){</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">static</span> <span class="kt">int</span> <span class="n">foobar</span><span class="p">(){</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">main</span><span class="p">(){</span>
+</span><span class='line'>  <span class="n">Foo</span><span class="p">.</span><span class="n">bar</span><span class="p">;</span><span class="c1">//1が返ってくる</span>
+</span><span class='line'>  <span class="n">Foo</span><span class="p">.</span><span class="n">foobar</span><span class="p">;</span><span class="c1">//エラー Fooのインスタンスがない</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">Foo</span> <span class="n">f</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Foo</span><span class="p">;</span><span class="c1">//Fooのインスタンスを作る</span>
+</span><span class='line'>  <span class="n">f</span><span class="p">.</span><span class="n">bar</span><span class="p">;</span><span class="c1">//1が返ってくる</span>
+</span><span class='line'>  <span class="n">f</span><span class="p">.</span><span class="n">foobar</span><span class="p">;</span><span class="c1">//2が返ってくる</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>まだクラスの話をしていないので意味がわからないかもしれませんが<br/>
+一応こういうものだ・・・って言う感じに心に留めておいてください</p>
+
+<p>あ、ちなみにD言語のstaticはC言語のファイルローカルという意味は持ちません<br/>
+これはどういうことかというとC言語ではstatic修飾をすると別のファイルからは参照できなくなることです<br/>
+で、この用途にはD言語ではprivate属性を使いますこれもまたクラスに関しての説明をするときにお預けとします</p>
+
+<p>で最後に静的配列について説明します<br/>
+これは宣言するときにT[配列のサイズ] 配列名;と宣言します<br/>
+こうするとこの配列のサイズは固定されます<br/>
+サンプルコードを書くと</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='d'><span class='line'><span class="kt">int</span> <span class="n">ary</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
+</span><span class='line'><span class="n">ary</span><span class="p">.</span><span class="n">length</span><span class="p">++;</span><span class="c1">//エラー</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>となります</p>
+
+<p>さいごに前編で予告しておいたソースコード載せておきます</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='d'><span class='line'><span class="k">import</span> <span class="n">std</span><span class="p">.</span><span class="n">stdio</span><span class="p">,</span>
+</span><span class='line'>       <span class="n">std</span><span class="p">.</span><span class="n">random</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="n">main</span><span class="p">(){</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">min</span> <span class="p">=</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>      <span class="n">max</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">minOfrange</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>      <span class="n">maxOfrange</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">Mt19937</span> <span class="n">gen</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">foreach</span><span class="p">(</span><span class="n">i</span><span class="p">;</span> <span class="mf">1..100</span><span class="p">){</span>
+</span><span class='line'>    <span class="n">gen</span><span class="p">.</span><span class="n">seed</span><span class="p">(</span><span class="n">unpredictableSeed</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">x</span> <span class="p">=</span> <span class="n">gen</span><span class="p">.</span><span class="n">front</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">x</span> <span class="p">=</span> <span class="n">x</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">?</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span> <span class="p">*</span> <span class="p">-</span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">x</span> <span class="p">=</span> <span class="p">(</span><span class="n">x</span> <span class="p">%</span> <span class="n">maxOfrange</span><span class="p">)</span> <span class="p">+</span> <span class="n">minOfrange</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">x</span> <span class="p">+=</span> <span class="n">minOfrange</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span><span class="n">min</span> <span class="p">&lt;=</span> <span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">x</span> <span class="p">&lt;=</span><span class="n">max</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">writeln</span><span class="p">(</span><span class="s">&quot;x = &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="n">writeln</span><span class="p">(</span><span class="s">&quot;out of range. x = &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>えっとまず0 &lt;= x &lt;= 5を満たすようなxを乱数で取得します<br/>
+次にxに1xが1 &lt;= xかつ x &lt;= 3を満たしているときは範囲内とみなすようにして出力させています<br/>
+少ない回数でやってもあれかな〜って思って100回にしました<br/>
+こんなことも簡単できます(あえてここで配列を使おうかと思いましたがやめました)</p>
+
+<p>とりあえずこんな感じです&hellip;<br/>
+忙しかったりで更新が止まっていて非情に申し訳ないです&hellip;<br/>
+次回はクラスとか構造体の話をしようかなあとか思っています&hellip;</p>
+
+<p>では、以上です</p>
+
+<p>alphaKAI</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[初心者向けプログラミング講座 - 04 : 制御構文と配列 前編]]></title>
